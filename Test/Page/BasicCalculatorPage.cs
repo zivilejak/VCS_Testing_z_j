@@ -8,21 +8,17 @@ using System.Threading.Tasks;
 
 namespace Test.Page
 {
-    class BasicCalculatorPage
+    class BasicCalculatorPage : BasePage
     {
-        private static IWebDriver _driver;
 
-        private IWebElement _firstInput => _driver.FindElement(By.Id("number1Field"));
-        private IWebElement _secondInput => _driver.FindElement(By.Id("number2Field"));
-        private IWebElement _integersOnly => _driver.FindElement(By.Id("integerSelect"));
-        private IWebElement _calculateButton => _driver.FindElement(By.Id("calculateButton"));
-        private IWebElement _actualResult => _driver.FindElement(By.Id("numberAnswerField"));
+        private IWebElement _firstInput => Driver.FindElement(By.Id("number1Field"));
+        private IWebElement _secondInput => Driver.FindElement(By.Id("number2Field"));
+        private IWebElement _integersOnly => Driver.FindElement(By.Id("integerSelect"));
+        private IWebElement _calculateButton => Driver.FindElement(By.Id("calculateButton"));
+        private IWebElement _actualResult => Driver.FindElement(By.Id("numberAnswerField"));
 
         //konstruktorius
-        public BasicCalculatorPage(IWebDriver webdriver)
-        {
-            _driver = webdriver;
-        }
+        public BasicCalculatorPage(IWebDriver webdriver) : base(webdriver){}
 
         //metodai
         public void EnterFirstInputField(string firstValue)

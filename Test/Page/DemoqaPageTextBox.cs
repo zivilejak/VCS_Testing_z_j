@@ -8,19 +8,15 @@ using System.Threading.Tasks;
 
 namespace Test.Page
 {
-    class DemoqaPageTextBox
+    class DemoqaPageTextBox : BasePage
     {
-        private static IWebDriver _driver;
 
-        private IWebElement _fullNameInputField => _driver.FindElement(By.Id("userName")); //po lygybes zenklo yra dedamas ">", kad elemento ieskotu tik tada, kada pareikalausim
-        private IWebElement _submitButton => _driver.FindElement(By.Id("submit"));
-        private IWebElement _fullNameActualResult => _driver.FindElement(By.Id("name"));
+        private IWebElement _fullNameInputField => Driver.FindElement(By.Id("userName")); //po lygybes zenklo yra dedamas ">", kad elemento ieskotu tik tada, kada pareikalausim
+        private IWebElement _submitButton => Driver.FindElement(By.Id("submit"));
+        private IWebElement _fullNameActualResult => Driver.FindElement(By.Id("name"));
 
         //konstruktorius
-        public DemoqaPageTextBox(IWebDriver webdriver)
-        {
-            _driver = webdriver;
-        }
+        public DemoqaPageTextBox(IWebDriver webdriver) : base(webdriver){}
 
         //metodas lauko ivedimui
         public void InsertTextToFullNameField(string text)
