@@ -22,6 +22,7 @@ namespace FinalAutomationTestingCourceWork_geoportal_lt.Tests
         {
             Driver = new ChromeDriver();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Driver.Manage().Window.Maximize();
 
             //inicializuoti objekta
             geoportalLoginPage = new GeoportalLoginPage(Driver);

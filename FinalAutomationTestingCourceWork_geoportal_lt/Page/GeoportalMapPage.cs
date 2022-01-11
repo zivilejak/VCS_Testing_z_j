@@ -13,6 +13,7 @@ namespace FinalAutomationTestingCourceWork_geoportal_lt.Page
         private const string PageAddress = "https://www.geoportal.lt/map/";
 
         //elementai
+        public IWebElement _publicServicesTab => Driver.FindElement(By.Id("ui-id-5"));
 
         //konstruktorius su paveldėjimu
         public GeoportalMapPage(IWebDriver webdriver) : base(webdriver) { }
