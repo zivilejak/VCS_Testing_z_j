@@ -22,6 +22,11 @@ namespace Test.Drivers
             return GetDriver(Browsers.Firefox);
         }
 
+        public static IWebDriver GetIncognitoChrome()
+        {
+            return GetDriver(Browsers.IncognitoChrome);
+        }
+
         private static IWebDriver GetDriver(Browsers browser)
         {
             IWebDriver webDriver = null;
@@ -34,9 +39,9 @@ namespace Test.Drivers
                 case Browsers.Firefox:
                     webDriver = new FirefoxDriver();
                     break;
-                //case Browsers.IncognitoChrome:
-                //    webDriver = GetChromeWithIncognitoOption();
-                //    break;
+                case Browsers.IncognitoChrome:
+                    webDriver = GetChromeWithIncognitoOption();
+                    break;
                 default:
                     webDriver = new ChromeDriver();
                     break;
@@ -46,6 +51,15 @@ namespace Test.Drivers
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             return webDriver;
+        }
+
+        private static IWebDriver GetChromeWithIncognitoOption()
+        {
+            ChromeOptions options = new ChromeOptions();
+
+            options.AddArgument("incognito");
+
+            return new ChromeDriver(options);
         }
     }
 }

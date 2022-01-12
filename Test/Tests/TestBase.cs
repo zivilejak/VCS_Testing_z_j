@@ -18,6 +18,7 @@ namespace Test.Tests
 
         public static DemoqaPageTextBox demoqaPageTextBox;
         public static BasicCalculatorPage basicCalculatorPage;
+        public static SebCalculatorPage sebCalculatorPage;
 
         [OneTimeSetUp]
         public static void Setup()
@@ -26,6 +27,7 @@ namespace Test.Tests
 
             demoqaPageTextBox = new DemoqaPageTextBox(Driver);
             basicCalculatorPage = new BasicCalculatorPage(Driver);
+            sebCalculatorPage = new SebCalculatorPage(Driver);
         }
 
 

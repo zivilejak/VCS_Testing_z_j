@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,15 @@ namespace Test.Tests
 {
     class SebCalculatorTest : TestBase
     {
+        [Test]
+        public static void CalculateLoan()
+        {
+            sebCalculatorPage.NavigateToDefaultPage()
+                .SwitchToFrame()
+                .InsertIncome("1000")
+                .SelectFromCityDropdownByValue("Klaipeda")
+                .ClickCalculateButton()
+                .CheckIfICanGetLoan(75000);
+        }
     }
 }

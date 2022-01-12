@@ -33,6 +33,13 @@ namespace Test.Page
             return this;
         }
 
+        public SebCalculatorPage SwitchToFrame()
+        {
+            Driver.SwitchTo().Frame(0);
+
+            return this;
+        }
+
         public SebCalculatorPage InsertIncome(string income)
         {
             _incomeInput.Clear();
